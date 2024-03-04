@@ -6,7 +6,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
 
 /* Style the header */
 header {
-    background-color: #333;
+    background-color: #000;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -32,6 +32,34 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #ccc;
+}
+
+/* Style the banner */
+.banner {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.banner-text {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Style the sections */
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+section h2 {
+    margin-bottom: 10px;
+}
+
+section p {
+    margin-bottom: 20px;
 }
 
 /* Style the footer */

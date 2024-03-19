@@ -38,6 +38,7 @@
 
         .email-list li {
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .email-list li:hover {
@@ -57,6 +58,34 @@
         .footer p:hover {
             color: #ff7f50;
         }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -66,10 +95,10 @@
         <div class="email-list">
             <p>Available Emails:</p>
             <ul>
-                <li><strong>frozen@xostudios.xyz</strong></li>
-                <li><strong>legal@xostudios.xyz</strong></li>
-                <li><strong>copyright@xostudios.xyz</strong></li>
-                <li><strong>careers@xostudios.xyz</strong></li>
+                <li class="tooltip" data-tooltip="Used for handling support requests"><strong>frozen@xostudios.xyz</strong><span class="tooltiptext">Used for handling support requests</span></li>
+                <li class="tooltip" data-tooltip="For legal inquiries and matters"><strong>legal@xostudios.xyz</strong><span class="tooltiptext">For legal inquiries and matters</span></li>
+                <li class="tooltip" data-tooltip="For copyright-related inquiries"><strong>copyright@xostudios.xyz</strong><span class="tooltiptext">For copyright-related inquiries</span></li>
+                <li class="tooltip" data-tooltip="For job applications and career inquiries"><strong>careers@xostudios.xyz</strong><span class="tooltiptext">For job applications and career inquiries</span></li>
             </ul>
         </div>
     </div>

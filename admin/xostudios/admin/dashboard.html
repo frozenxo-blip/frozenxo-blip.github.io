@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .toggle-label {
+            display: inline-block;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 34px;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .status-message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ffe4e1;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .status-message.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Admin Page</h1>
+        <div class="toggle-wrapper">
+            <label class="toggle-label">Maintenance Mode:</label>
+            <label class="toggle">
+                <input type="checkbox" id="maintenance-toggle" onchange="toggleMaintenance()">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="status-message" id="maintenance-message">Maintenance mode is currently <strong>OFF</strong>.</div>
+    </div>
+
+    <script>
+        function toggleMaintenance() {
+            var maintenanceToggle = document.getElementById('maintenance-toggle');
+            var maintenanceMessage = document.getElementById('maintenance-message');
+
+            if (maintenanceToggle.checked) {
+                maintenanceMessage.innerHTML = "Maintenance mode is currently <strong>ON</strong>.";
+            } else {
+                maintenanceMessage.innerHTML = "Maintenance mode is currently <strong>OFF</strong>.";
+            }
+
+            maintenanceMessage.classList.add('show');
+            setTimeout(function() {
+                maintenanceMessage.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

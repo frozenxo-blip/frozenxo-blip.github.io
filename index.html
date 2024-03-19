@@ -152,13 +152,4 @@
         }
     </script>
 </body>
-
 </html>
-
-<?php
-$maintenance_status = trim(file_get_contents('maintenance_status.txt'));
-if($maintenance_status === 'on') {
-    echo '<div style="background-color: #ffcccc; padding: 10px; text-align: center;">We are currently undergoing maintenance. Please try again later.</div>';
-    exit;
-}
-?>

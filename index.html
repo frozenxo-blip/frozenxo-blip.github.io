@@ -39,6 +39,7 @@
         .email-list li {
             transition: transform 0.3s ease;
             cursor: pointer;
+            position: relative;
         }
 
         .email-list li:hover {
@@ -61,28 +62,23 @@
 
         /* Tooltip */
         .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
+            position: absolute;
             visibility: hidden;
-            width: 120px;
+            width: 200px;
             background-color: #555;
             color: #fff;
             text-align: center;
             border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
+            padding: 5px;
             z-index: 1;
-            bottom: 125%;
+            bottom: -30px;
             left: 50%;
-            margin-left: -60px;
+            transform: translateX(-50%);
             opacity: 0;
             transition: opacity 0.3s;
         }
 
-        .tooltip:hover .tooltiptext {
+        .email-list li:hover .tooltip {
             visibility: visible;
             opacity: 1;
         }
@@ -95,10 +91,18 @@
         <div class="email-list">
             <p>Available Emails:</p>
             <ul>
-                <li class="tooltip" data-tooltip="Used for handling support requests"><strong>frozen@xostudios.xyz</strong><span class="tooltiptext">Used for handling support requests</span></li>
-                <li class="tooltip" data-tooltip="For legal inquiries and matters"><strong>legal@xostudios.xyz</strong><span class="tooltiptext">For legal inquiries and matters</span></li>
-                <li class="tooltip" data-tooltip="For copyright-related inquiries"><strong>copyright@xostudios.xyz</strong><span class="tooltiptext">For copyright-related inquiries</span></li>
-                <li class="tooltip" data-tooltip="For job applications and career inquiries"><strong>careers@xostudios.xyz</strong><span class="tooltiptext">For job applications and career inquiries</span></li>
+                <li><strong>frozen@xostudios.xyz</strong>
+                    <div class="tooltip">Used for handling support requests</div>
+                </li>
+                <li><strong>legal@xostudios.xyz</strong>
+                    <div class="tooltip">For legal inquiries and matters</div>
+                </li>
+                <li><strong>copyright@xostudios.xyz</strong>
+                    <div class="tooltip">For copyright-related inquiries</div>
+                </li>
+                <li><strong>careers@xostudios.xyz</strong>
+                    <div class="tooltip">For job applications and career inquiries</div>
+                </li>
             </ul>
         </div>
     </div>

@@ -7,10 +7,25 @@
 </head>
 <body>
     <h1>Admin Page</h1>
-    <form action="update_maintenance.php" method="post">
-        <label for="maintenance-toggle">Maintenance Mode:</label>
-        <input type="checkbox" id="maintenance-toggle" name="maintenance-toggle">
-        <button type="submit">Save</button>
-    </form>
+    <label for="maintenance-toggle">Maintenance Mode:</label>
+    <input type="checkbox" id="maintenance-toggle">
+    <button onclick="saveMaintenanceMode()">Save</button>
+
+    <script>
+        // Function to save maintenance mode status in localStorage
+        function saveMaintenanceMode() {
+            var maintenanceToggle = document.getElementById('maintenance-toggle');
+            localStorage.setItem('maintenanceMode', maintenanceToggle.checked);
+        }
+
+        // On page load, set the toggle state based on saved maintenance mode
+        window.onload = function() {
+            var maintenanceToggle = document.getElementById('maintenance-toggle');
+            var maintenanceMode = localStorage.getItem('maintenanceMode');
+            if (maintenanceMode === 'true') {
+                maintenanceToggle.checked = true;
+            }
+        };
+    </script>
 </body>
 </html>

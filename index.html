@@ -82,6 +82,11 @@
             visibility: visible;
             opacity: 1;
         }
+
+        /* Copy feedback */
+        .copied {
+            color: green;
+        }
     </style>
 </head>
 
@@ -91,16 +96,16 @@
         <div class="email-list">
             <p>Available Emails:</p>
             <ul>
-                <li><strong>frozen@xostudios.xyz</strong>
+                <li id="email1" onclick="copyToClipboard('frozen@xostudios.xyz')"><strong>frozen@xostudios.xyz</strong>
                     <div class="tooltip">Used for handling support requests</div>
                 </li>
-                <li><strong>legal@xostudios.xyz</strong>
+                <li id="email2" onclick="copyToClipboard('legal@xostudios.xyz')"><strong>legal@xostudios.xyz</strong>
                     <div class="tooltip">For legal inquiries and matters</div>
                 </li>
-                <li><strong>copyright@xostudios.xyz</strong>
+                <li id="email3" onclick="copyToClipboard('copyright@xostudios.xyz')"><strong>copyright@xostudios.xyz</strong>
                     <div class="tooltip">For copyright-related inquiries</div>
                 </li>
-                <li><strong>careers@xostudios.xyz</strong>
+                <li id="email4" onclick="copyToClipboard('careers@xostudios.xyz')"><strong>careers@xostudios.xyz</strong>
                     <div class="tooltip">For job applications and career inquiries</div>
                 </li>
             </ul>
@@ -110,6 +115,27 @@
     <div class="footer">
         <p>&copy; 2024 XOStudios CORP. All rights reserved.</p>
     </div>
+
+    <script>
+        function copyToClipboard(email) {
+            const el = document.createElement('textarea');
+            el.value = email;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            displayCopiedMessage(email);
+        }
+
+        function displayCopiedMessage(email) {
+            const elementId = `email${email.replace(/[^a-z0-9]/gi, '')}`;
+            const emailElement = document.getElementById(elementId);
+            emailElement.classList.add('copied');
+            setTimeout(() => {
+                emailElement.classList.remove('copied');
+            }, 2000);
+        }
+    </script>
 </body>
 
 </html>

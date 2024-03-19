@@ -97,32 +97,31 @@
         .email-list a:hover {
             text-decoration: underline;
         }
+
+        /* Maintenance Page */
+        .maintenance {
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .maintenance h2 {
+            color: #333;
+        }
+
+        .maintenance p {
+            color: #666;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>XOStudios Email Hosting</h1>
-        <div class="email-list">
-            <p>Available Emails:</p>
-            <ul>
-                <li id="email1" onclick="copyToClipboard('frozen@xostudios.xyz')"><a href="mailto:frozen@xostudios.xyz"><strong>frozen@xostudios.xyz</strong></a>
-                    <div class="tooltip">N/A</div>
-                </li>
-                <li id="email2" onclick="copyToClipboard('support@xostudios.xyz')"><a href="mailto:support@xostudios.xyz"><strong>support@xostudios.xyz</strong></a>
-                    <div class="tooltip">Used for handling support requests</div>
-                </li>
-                <li id="email3" onclick="copyToClipboard('legal@xostudios.xyz')"><a href="mailto:legal@xostudios.xyz"><strong>legal@xostudios.xyz</strong></a>
-                    <div class="tooltip">For legal inquiries and matters</div>
-                </li>
-                <li id="email4" onclick="copyToClipboard('copyright@xostudios.xyz')"><a href="mailto:copyright@xostudios.xyz"><strong>copyright@xostudios.xyz</strong></a>
-                    <div class="tooltip">For copyright related inquiries</div>
-                </li>
-                <li id="email5" onclick="copyToClipboard('careers@xostudios.xyz')"><a href="mailto:careers@xostudios.xyz"><strong>careers@xostudios.xyz</strong></a>
-                    <div class="tooltip">For job applications and career inquiries</div>
-                </li>
-            </ul>
-        </div>
+    <!-- Maintenance Page -->
+    <div class="container maintenance">
+        <h2>We're Sorry, but the Website is Currently Under Maintenance</h2>
+        <p>We are working hard to bring our services back online as soon as possible. Please check back later.</p>
     </div>
 
     <div class="footer">
@@ -130,6 +129,7 @@
     </div>
 
     <script>
+        // Function to copy email address to clipboard
         function copyToClipboard(email) {
             const el = document.createElement('textarea');
             el.value = email;
@@ -140,6 +140,7 @@
             displayCopiedMessage(email);
         }
 
+        // Function to display copied message
         function displayCopiedMessage(email) {
             const elementId = `email${email.replace(/[^a-z0-9]/gi, '')}`;
             const emailElement = document.getElementById(elementId);

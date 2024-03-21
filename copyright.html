@@ -34,12 +34,23 @@
         li {
             margin-bottom: 10px;
         }
+
+        .maintenance-message {
+            background-color: #ffcccc;
+            padding: 10px;
+            text-align: center;
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>XOStudios Copyright Information</h1>
+
+        <div class="maintenance-message">
+            <p>This page is under maintenance. Please read basic legal info below.</p>
+        </div>
 
         <p>All content on this website, including text, graphics, logos, images, audio clips, digital downloads, and data compilations, is the property of XOStudios CORP unless otherwise indicated. The content is protected by copyright laws and international treaties.</p>
 
@@ -49,6 +60,10 @@
 
         <p>For inquiries regarding the use of content or to request permission for use, please contact us at copyright@xostudios.xyz.</p>
     </div>
+
+    <script>
+        document.querySelector('.maintenance-message').style.display = 'block';
+    </script>
 </body>
 
 </html>

@@ -12,38 +12,55 @@
             padding: 0;
             background-color: #f7f7f7;
             color: #333;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1a1a1a;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            flex: 1;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-left: 250px;
         }
 
         h1 {
             font-size: 42px;
             margin-bottom: 30px;
             color: #333;
-            text-align: center;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .opening-hours {
-            margin-top: 50px;
+        .nav {
+            margin-bottom: 40px;
+        }
+
+        .nav a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+            border-radius: 10px;
             font-size: 18px;
-            text-align: center;
+            letter-spacing: 1px;
         }
 
-        .opening-hours h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .opening-hours p {
-            margin: 10px 0;
+        .nav a:hover {
+            background-color: #333;
         }
 
         .footer {
@@ -61,101 +78,71 @@
             color: #ff7f50;
         }
 
-        @media (min-width: 768px) {
-            .container {
-                flex-direction: row;
-                justify-content: space-around;
-            }
+        .opening-hours {
+            margin-top: 50px;
+            font-size: 18px;
+            text-align: center;
+        }
 
+        .opening-hours p {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        @media (max-width: 992px) {
             .sidebar {
-                width: 250px;
-                background-color: #1a1a1a;
-                padding: 20px;
-                box-sizing: border-box;
-                border-radius: 15px;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-                color: #fff;
+                width: 200px;
             }
-
-            .main-content {
-                flex: 1;
-                padding: 20px;
-                background-color: #ffffff;
-                border-radius: 15px;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            .container {
+                margin-left: 200px;
             }
-
-            .sidebar h1 {
+            h1 {
                 font-size: 36px;
-                margin-bottom: 30px;
-                text-align: center;
-                text-transform: uppercase;
             }
-
-            .nav {
-                margin-bottom: 40px;
-                text-align: center;
-            }
-
             .nav a {
-                display: block;
-                color: #fff;
-                text-decoration: none;
-                padding: 15px;
-                margin-bottom: 10px;
-                transition: background-color 0.3s;
-                border-radius: 10px;
-                font-size: 18px;
-                letter-spacing: 1px;
+                padding: 12px;
+                font-size: 16px;
             }
-
-            .nav a:hover {
-                background-color: #333;
+            .opening-hours {
+                font-size: 16px;
             }
+        }
 
-            .footer {
-                margin-top: 50px;
-                font-size: 14px;
-                color: #666;
-                text-align: center;
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
             }
-
-            .footer p {
-                transition: color 0.3s ease;
-            }
-
-            .footer p:hover {
-                color: #ff7f50;
+            .container {
+                margin-left: 0;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <h1>XOStudios</h1>
-            <div class="nav">
-                <a href="/leadership">Meet Our Team</a>
-                <a href="/dance">Our Classes</a>
-                <a href="/legal">Legal Information</a>
-                <a href="/copyright">Copyright Notice</a>
-            </div>
-            <div class="footer">
-                <p>&copy; 2024 XOStudios CORP. All rights reserved.</p>
-            </div>
+    <div class="sidebar">
+        <h1>XOStudios</h1>
+        <div class="nav">
+            <a href="/leadership">Meet Our Team</a>
+            <a href="/dance">Our Classes</a>
+            <a href="/legal">Legal Information</a>
+            <a href="/copyright">Copyright Notice</a>
         </div>
-
-        <div class="main-content">
-            <h1>Welcome to XOStudios Dance Studio</h1>
-            <div class="opening-hours">
-                <h2>Studio Opening Hours</h2>
-                <p>Monday - Friday: 9:00 AM - 6:30 PM KST</p>
-                <p>Saturday: 10:00 AM - 9:00 PM KST</p>
-                <p>We are closed on Sundays.</p>
-            </div>
+        <div class="footer">
+            <p>&copy; 2024 XOStudios CORP. All rights reserved.</p>
         </div>
     </div>
+
+    <div class="container">
+        <h1>Welcome to XOStudios Dance Studio</h1>
+        <div class="opening-hours">
+            <h2>Studio Opening Hours</h2>
+            <p>Monday - Friday: 9:00 AM - 6:30 PM KST</p>
+            <p>Saturday: 10:00 AM - 9:00 PM KST</p>
+            <p>We are closed on Sundays.</p>
+        </div>
+    </div>
+
 </body>
 
 </html>

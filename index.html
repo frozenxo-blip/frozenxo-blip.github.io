@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XOStudios Email Hosting</title>
+    <title>XOStudios Dance Studio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,7 +15,7 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
@@ -25,65 +25,26 @@
 
         h1 {
             color: #333;
-            font-size: 32px;
+            font-size: 36px;
             margin-bottom: 20px;
-            transition: transform 0.3s ease;
+            text-transform: uppercase;
         }
 
-        h1:hover {
-            transform: scale(1.05);
-        }
-
-        .email-list {
+        .nav {
             text-align: left;
             margin-bottom: 30px;
         }
 
-        .email-list li {
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            list-style: none;
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .email-list li:hover {
-            transform: translateX(5px);
-            background-color: #eaeaea;
-        }
-
-        .email-list strong {
+        .nav a {
+            display: block;
             color: #333;
+            text-decoration: none;
+            padding: 10px;
+            transition: background-color 0.3s;
         }
 
-        .tooltip {
-            position: absolute;
-            visibility: hidden;
-            width: 200px;
-            background-color: #555;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px;
-            z-index: 1;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .email-list li:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .copied {
-            color: green;
+        .nav a:hover {
+            background-color: #f9f9f9;
         }
 
         .footer {
@@ -104,63 +65,18 @@
 
 <body>
     <div class="container">
-        <h1>XOStudios Email Hosting</h1>
-        <div class="email-list">
-            <p>Available Emails:</p>
-            <ul>
-                <li id="email1" onclick="copyToClipboard('frozen@xostudios.xyz')"><a href="mailto:frozen@xostudios.xyz"><strong>frozen@xostudios.xyz</strong></a>
-                    <div class="tooltip">N/A</div>
-                </li>
-                <li id="email2" onclick="copyToClipboard('support@xostudios.xyz')"><a href="mailto:support@xostudios.xyz"><strong>support@xostudios.xyz</strong></a>
-                    <div class="tooltip">Used for handling support requests</div>
-                </li>
-                <li id="email3" onclick="copyToClipboard('legal@xostudios.xyz')"><a href="mailto:legal@xostudios.xyz"><strong>legal@xostudios.xyz</strong></a>
-                    <div class="tooltip">For legal inquiries and matters</div>
-                </li>
-                <li id="email4" onclick="copyToClipboard('copyright@xostudios.xyz')"><a href="mailto:copyright@xostudios.xyz"><strong>copyright@xostudios.xyz</strong></a>
-                    <div class="tooltip">For copyright related inquiries</div>
-                </li>
-                <li id="email5" onclick="copyToClipboard('careers@xostudios.xyz')"><a href="mailto:careers@xostudios.xyz"><strong>careers@xostudios.xyz</strong></a>
-                    <div class="tooltip">For job applications and career inquiries</div>
-                </li>
-            </ul>
+        <h1>Welcome to XOStudios Dance Studio</h1>
+        <div class="nav">
+            <a href="/leadership">Leadership</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/legal">Legal</a>
+            <a href="/copyright">Copyright</a>
         </div>
     </div>
 
     <div class="footer">
         <p>&copy; 2024 XOStudios CORP. All rights reserved.</p>
     </div>
-
-    <script>
-        function copyToClipboard(email) {
-            const el = document.createElement('textarea');
-            el.value = email;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            displayCopiedMessage(email);
-        }
-
-        function displayCopiedMessage(email) {
-            const elementId = `email${email.replace(/[^a-z0-9]/gi, '')}`;
-            const emailElement = document.getElementById(elementId);
-            emailElement.classList.add('copied');
-            setTimeout(() => {
-                emailElement.classList.remove('copied');
-            }, 2000);
-        }
-    <div id="maintenance-message" style="background-color: #ffcccc; padding: 10px; text-align: center; display: none;">
-        We are currently undergoing maintenance. Please try again later.
-    </div>
-
-    <!-- JavaScript to check maintenance mode -->
-    <script>
-        // Check if maintenance mode is enabled and show message if true
-        var maintenanceMode = localStorage.getItem('maintenanceMode');
-        if (maintenanceMode === 'true') {
-            document.getElementById('maintenance-message').style.display = 'block';
-        }
-    </script>
 </body>
+
 </html>

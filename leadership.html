@@ -34,6 +34,14 @@
             align-items: center;
             justify-content: flex-start;
             margin-bottom: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .leader:hover {
+            transform: translateY(-5px);
         }
 
         .leader img {
@@ -43,7 +51,6 @@
             margin-right: 30px;
             object-fit: cover;
             border: 5px solid #ffffff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
@@ -53,14 +60,13 @@
 
         .leader-info {
             padding: 20px;
-            background-color: #f2f2f2;
-            border-radius: 10px;
         }
 
         .leader-info h2 {
             color: #333;
             margin-bottom: 10px;
             font-size: 24px;
+            transition: color 0.3s ease;
         }
 
         .leader-info p {

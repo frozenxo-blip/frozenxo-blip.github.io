@@ -1,101 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leadership at XOStudios Dance Studio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
             margin: 0;
             padding: 0;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             text-align: center;
             color: #333;
+            margin-bottom: 30px;
+            font-size: 36px;
         }
-        p {
-            line-height: 1.6;
-            color: #666;
-        }
+
         .leader {
-            margin-top: 30px;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 40px;
         }
+
         .leader img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            margin-right: 20px;
+            margin-right: 30px;
             object-fit: cover;
-            border: 5px solid #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 5px solid #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
-        .leader h2 {
+
+        .leader img:hover {
+            transform: scale(1.05);
+        }
+
+        .leader-info {
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+        }
+
+        .leader-info h2 {
             color: #333;
             margin-bottom: 10px;
+            font-size: 24px;
         }
-        .leader p {
+
+        .leader-info p {
             color: #666;
+            line-height: 1.6;
+            font-size: 16px;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Leadership at XOStudios Dance Studio</h1>
-    
-    <div class="leader">
-        <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/ethan.jpg" alt="Ethan Williams">
-        <div>
-            <h2>Ethan Williams</h2>
-            <p>Position: Studio Director</p>
-        </div>
-    </div>
+    <div class="container">
+        <h1>Meet Our Leadership Team</h1>
 
-    <div class="leader">
-        <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/isa.png" alt="Isabella Rodriguez">
-        <div>
-            <h2>Isabella Rodriguez</h2>
-            <p>Position: Studio Director</p>
+        <div class="leader">
+            <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/ethan.jpg" alt="Ethan Williams">
+            <div class="leader-info">
+                <h2>Ethan Williams</h2>
+                <p>Position: Studio Director</p>
+            </div>
         </div>
-    </div>
 
-    <div class="leader">
-        <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/soph.jpg" alt="Sophia Johnson">
-        <div>
-            <h2>Sophia Johnson</h2>
-            <p>Position: Studio Director</p>
+        <div class="leader">
+            <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/isa.png" alt="Isabella Rodriguez">
+            <div class="leader-info">
+                <h2>Isabella Rodriguez</h2>
+                <p>Position: Studio Director</p>
+            </div>
         </div>
-    </div>
 
-    <div class="leader">
-        <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/image_2024-03-ava.png" alt="Ava Martinez">
-        <div>
-            <h2>Ava Martinez</h2>
-            <p>Position: Lead Choreographer</p>
+        <div class="leader">
+            <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/soph.jpg" alt="Sophia Johnson">
+            <div class="leader-info">
+                <h2>Sophia Johnson</h2>
+                <p>Position: Studio Director</p>
+            </div>
         </div>
-    </div>
 
-    <div class="leader">
-        <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/image_2024-02-market.png" alt="Ji-eun Park">
-        <div>
-            <h2>Ji-eun Park</h2>
-            <p>Position: Marketing Manager</p>
+        <div class="leader">
+            <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/image_2024-03-ava.png" alt="Ava Martinez">
+            <div class="leader-info">
+                <h2>Ava Martinez</h2>
+                <p>Position: Lead Choreographer</p>
+            </div>
+        </div>
+
+        <div class="leader">
+            <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/image_2024-02-market.png" alt="Ji-eun Park">
+            <div class="leader-info">
+                <h2>Ji-eun Park</h2>
+                <p>Position: Marketing Manager</p>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>

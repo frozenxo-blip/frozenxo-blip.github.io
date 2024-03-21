@@ -93,6 +93,19 @@
                 font-size: 16px;
             }
         }
+
+        .open-status {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .open-status.open {
+            color: #008000;
+        }
+
+        .open-status.closed {
+            color: #ff0000;
+        }
     </style>
 </head>
 
@@ -111,6 +124,7 @@
             <p>Monday - Friday: 9:00 AM - 6:30 PM KST</p>
             <p>Saturday: 10:00 AM - 9:00 PM KST</p>
             <p>We are closed on Sundays.</p>
+            <div class="open-status open">We are currently open!</div>
         </div>
     </div>
 

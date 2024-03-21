@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<meta name="language" content="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XOStudios Dance Studio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1a1a1a;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-left: 250px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav {
+            margin-bottom: 40px;
+        }
+
+        .nav a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+            border-radius: 10px;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .nav a:hover {
+            background-color: #333;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        .footer p {
+            transition: color 0.3s ease;
+        }
+
+        .footer p:hover {
+            color: #ff7f50;
+        }
+
+        .opening-hours {
+            margin-top: 50px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .opening-hours p {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 200px;
+            }
+            .container {
+                margin-left: 200px;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            .nav a {
+                padding: 12px;
+                font-size: 16px;
+            }
+            .opening-hours {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            .container {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h1>XOStudios</h1>
+        <div class="nav">
+            <a href="/leadership">Meet Our Team</a>
+            <a href="/dance">Our Classes</a>
+            <a href="/legal">Legal Information</a>
+            <a href="/copyright">Copyright Notice</a>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 XOStudios CORP. All rights reserved.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Welcome to XOStudios Dance Studio</h1>
+        <div class="opening-hours">
+            <h2>Studio Opening Hours</h2>
+            <p>Monday - Friday: 9:00 AM - 6:30 PM KST</p>
+            <p>Saturday: 10:00 AM - 9:00 PM KST</p>
+            <p>We are closed on Sundays.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

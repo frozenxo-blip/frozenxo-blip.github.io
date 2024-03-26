@@ -1,163 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leadership at XOStudios Dance Studio</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 36px;
-        }
-
-        .leader {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin-bottom: 40px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .leader:hover {
-            transform: translateY(-5px);
-        }
-
-        .leader img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-right: 30px;
-            object-fit: cover;
-            border: 5px solid #ffffff;
-            transition: transform 0.3s ease;
-        }
-
-        .leader img:hover {
-            transform: scale(1.05);
-        }
-
-        .leader-info {
-            padding: 20px;
-        }
-
-        .leader-info h2 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 24px;
-            transition: color 0.3s ease;
-        }
-
-        .leader-info p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .leader-info .contact-info {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Additional Styling */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .container {
-            animation: fadeIn 0.5s ease;
-        }
-
-        .leader-info h2 {
-            font-weight: bold;
-        }
-
-        .leader-info p:last-child {
-            margin-bottom: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PC and Wi-Fi Info</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #info {
+        display: none;
+    }
+</style>
 </head>
-
 <body>
 
-    <div class="container">
-        <h1>Meet Our Leadership Team</h1>
+<div id="entry">
+    <h1>Click to Enter</h1>
+    <button onclick="showInfo()">Enter</button>
+</div>
 
-        <div class="leader">
-            <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/ethan.jpg" alt="Ethan Williams">
-            <div class="leader-info">
-                <h2>Ethan Williams</h2>
-                <p>Position: Studio Director</p>
-                <p>Contact: <a href="mailto:ethan@xostudios.xyz" class="contact-info">ethan@xostudios.xyz</a></p>
-            </div>
-        </div>
+<div id="info">
+    <h2>PC Information</h2>
+    <p><strong>Operating System:</strong> <span id="os"></span></p>
+    <p><strong>Browser:</strong> <span id="browser"></span></p>
+    <p><strong>Screen Resolution:</strong> <span id="resolution"></span></p>
+    <h2>Wi-Fi Information</h2>
+    <p><strong>SSID:</strong> <span id="ssid"></span></p>
+    <p><strong>Signal Strength:</strong> <span id="signal"></span></p>
+</div>
 
-        <div class="leader">
-            <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/isa.png" alt="Isabella Rodriguez">
-            <div class="leader-info">
-                <h2>Isabella Rodriguez</h2>
-                <p>Position: Studio Director</p>
-                <p>Contact: <a href="mailto:isabella@xostudios.xyz" class="contact-info">isabella@xostudios.xyz</a></p>
-            </div>
-        </div>
-
-        <div class="leader">
-            <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/soph.jpg" alt="Sophia Johnson">
-            <div class="leader-info">
-                <h2>Sophia Johnson</h2>
-                <p>Position: Studio Director</p>
-                <p>Contact: <a href="mailto:sophia@xostudios.xyz" class="contact-info">sophia@xostudios.xyz</a></p>
-            </div>
-        </div>
-
-        <div class="leader">
-            <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/image_2024-03-ava.png" alt="Ava Martinez">
-            <div class="leader-info">
-                <h2>Ava Martinez</h2>
-                <p>Position: Lead Choreographer</p>
-            </div>
-        </div>
-
-        <div class="leader">
-            <img src="https://raw.githubusercontent.com/frozenxo-blip/frozenxo-blip.github.io/main/test/image_2024-02-market.png" alt="Ji-eun Park">
-            <div class="leader-info">
-                <h2>Ji-eun Park</h2>
-                <p>Position: Marketing Manager</p>
-                <p>Contact: <a href="mailto:marketing@xostudios.xyz" class="contact-info">marketing@xostudios.xyz</a></p>
-            </div>
-        </div>
-    </div>
+<script>
+function showInfo() {
+    document.getElementById("entry").style.display = "none";
+    document.getElementById("info").style.display = "block";
+    document.getElementById("os").innerText = navigator.platform;
+    document.getElementById("browser").innerText = navigator.userAgent;
+    document.getElementById("resolution").innerText = window.screen.width + "x" + window.screen.height;
+    
+    // This part will only work in browsers that support the Network Information API
+    if ('connection' in navigator && 'type' in navigator.connection) {
+        document.getElementById("ssid").innerText = navigator.connection.ssid;
+        document.getElementById("signal").innerText = navigator.connection.effectiveType;
+    } else {
+        document.getElementById("ssid").innerText = "N/A";
+        document.getElementById("signal").innerText = "N/A";
+    }
+}
+</script>
 
 </body>
-
 </html>

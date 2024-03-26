@@ -1,58 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Discontinued</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            margin-bottom: 20px;
-        }
-
-        a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PC and Wi-Fi Info</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #info {
+        display: none;
+    }
+</style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Sorry, This Site Has Been Discontinued</h1>
-        <p>Click below to be redirected to our friends at 1MStudios:</p>
-        <a href="https://www.1milliondance.com">1MStudios</a>
-    </div>
-</body>
 
+<div id="entry">
+    <h1>Click to Enter</h1>
+    <button onclick="showInfo()">Enter</button>
+</div>
+
+<div id="info">
+    <h2>PC Information</h2>
+    <p><strong>Operating System:</strong> <span id="os"></span></p>
+    <p><strong>Browser:</strong> <span id="browser"></span></p>
+    <p><strong>Screen Resolution:</strong> <span id="resolution"></span></p>
+    <h2>Wi-Fi Information</h2>
+    <p><strong>SSID:</strong> <span id="ssid"></span></p>
+    <p><strong>Signal Strength:</strong> <span id="signal"></span></p>
+</div>
+
+<script>
+function showInfo() {
+    document.getElementById("entry").style.display = "none";
+    document.getElementById("info").style.display = "block";
+    document.getElementById("os").innerText = navigator.platform;
+    document.getElementById("browser").innerText = navigator.userAgent;
+    document.getElementById("resolution").innerText = window.screen.width + "x" + window.screen.height;
+    
+    // This part will only work in browsers that support the Network Information API
+    if ('connection' in navigator && 'type' in navigator.connection) {
+        document.getElementById("ssid").innerText = navigator.connection.ssid;
+        document.getElementById("signal").innerText = navigator.connection.effectiveType;
+    } else {
+        document.getElementById("ssid").innerText = "N/A";
+        document.getElementById("signal").innerText = "N/A";
+    }
+}
+</script>
+
+</body>
 </html>

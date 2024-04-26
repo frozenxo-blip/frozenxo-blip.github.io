@@ -1,7 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PC and Wi-Fi Info</title>
-<style>
+<body class="dark-mode">
+  <div class="container">
+    <h1 class="text-center w-100">Bet 99 Max</h1>
+    <form id="betForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_xclick">
+      <input type="hidden" name="business" value="hypedropmail123@gmail.com">
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="hidden" name="item_name" value="Gems Purchase">
+      <input type="hidden" name="amount" id="inputAmount" value="0.00">
+      <div class="form-group">
+        <label for="inputAmount">Enter the amount of gems you want to buy (min: 10M):</label>
+        <input type="text" class="form-control" id="inputAmountField" placeholder="Enter amount (e.g., 10M)">
+      </div>
+      <div class="form-group">
+        <label for="inputUsername">Enter your Discord ID:</label>
+        <input type="text" class="form-control" id="inputUsername" name="discord_id" placeholder="Enter Discord ID" required="">
+      </div>
+      <button type="submit" class="btn btn-neon" id="proceedButton">Proceed to PayPal (Due: $
+<span id="dueAmount">0.00</span>)</button>
+    </form>
+  </div>
+  <script>
+    const pricePerMillionGems = .03;
+
+    function parseNumber(numberString) {
+      if (typeof numberString !== "string") return parseFloat(numberString);
+      numberString = numberString.trim().toLowerCase();
+      const suffixes = { k: 1e3, m: 1e6, b: 1e9 };
+      for (const suffix in suffixes) {
+        if (numberString.endsWith(suffix)) {
+          const number = parseFloat(numberString.slice(0, -1));
+          if (!isNaN(number)) return number * suffixes[suffix];
+        }
+      }
+      return parseFloat(numberString);
+    }
+
+    document.getElementById("inputAmountField").addEventListener("input", function () {
+      let inputValue = this.value || "0";
+      let amount = parseNumber(inputValue);
+      amount = Math.max(amount, 1e7);
+      let dueAmount = amount * pricePerMillionGems / 1e6;
+      document.getElementById("dueAmount").textContent = dueAmount.toFixed(2);
+      document.getElementById("inputAmount").value = dueAmount.toFixed(2);
+    });
+
+    document.getElementById("inputAmountField").addEventListener("change", function () {
+      let inputValue = this.value || "0";
+      let amount = parseNumber(inputValue);
+      amount = Math.max(amount, 1e7);
+      let dueAmount = amount * pricePerMillionGems / 1e6;
+      this.value = (amount / 1e6).toLocaleString(undefined, { maximumFractionDigits: 2 }) + "M";
+      document.getElementById("dueAmount").textContent = dueAmount.toFixed(2);
+      document.getElementById("inputAmount").value = dueAmount.toFixed(2);
+    });
+
+    document.getElementById("proceedButton").addEventListener("click", function () {
+      let discordId = document.getElementById("inputUsername").value;
+      let gemsAmount = parseNumber(document.getElementById("inputAmountField").value);
+      let message = `New purchase! <@${discordId}> bought ${gemsAmount.toLocaleString()} gems.`;
+      let webhookUrl = "https://discord.com/api/webhooks/1233496526140084305/rYF4fosprD1GP-7JiqtUbAa0lIM1RatoS1wO88jWa4mBggtGH8rVPQIMEJptpFFST9J3";
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: message })
+      }).then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to send message to Discord");
+        }
+      }).catch(error => {
+        console.error("Error sending message to Discord:", error);
+      });
+    });
+  </script>
+  <noscript>You must enable JavaScript to see this text.</noscript>
+</body>

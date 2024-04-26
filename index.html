@@ -1,6 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bet 99 Max</title>
+  <style>
+    body.dark-mode {
+      background-color: #222;
+      color: #fff;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #333;
+      color: #fff;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-neon {
+      background-color: #00fffc;
+      color: #000;
+    }
+  </style>
+</head>
 <body class="dark-mode">
   <div class="container">
-    <h1 class="text-center w-100">Bet 99 Max</h1>
+    <h1 class="text-center">Bet 99 Max</h1>
     <form id="betForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
       <input type="hidden" name="cmd" value="_xclick">
       <input type="hidden" name="business" value="hypedropmail123@gmail.com">
@@ -20,7 +59,11 @@
     </form>
   </div>
   <script>
-    const pricePerMillionGems = .03;
+    const pricePerMillionGems = {
+      'default': 0.03,
+      '100m+': 0.029,
+      '1b+': 0.025
+    };
 
     function parseNumber(numberString) {
       if (typeof numberString !== "string") return parseFloat(numberString);
@@ -35,23 +78,30 @@
       return parseFloat(numberString);
     }
 
+    function updateDueAmount(amount) {
+      let dueAmount = amount * pricePerMillionGems['default'] / 1e6;
+      if (amount >= 100e6 && amount < 1e9) {
+        dueAmount = amount * pricePerMillionGems['100m+'] / 1e6;
+      } else if (amount >= 1e9) {
+        dueAmount = amount * pricePerMillionGems['1b+'] / 1e6;
+      }
+      document.getElementById("dueAmount").textContent = dueAmount.toFixed(2);
+      document.getElementById("inputAmount").value = dueAmount.toFixed(2);
+    }
+
     document.getElementById("inputAmountField").addEventListener("input", function () {
       let inputValue = this.value || "0";
       let amount = parseNumber(inputValue);
       amount = Math.max(amount, 1e7);
-      let dueAmount = amount * pricePerMillionGems / 1e6;
-      document.getElementById("dueAmount").textContent = dueAmount.toFixed(2);
-      document.getElementById("inputAmount").value = dueAmount.toFixed(2);
+      updateDueAmount(amount);
     });
 
     document.getElementById("inputAmountField").addEventListener("change", function () {
       let inputValue = this.value || "0";
       let amount = parseNumber(inputValue);
       amount = Math.max(amount, 1e7);
-      let dueAmount = amount * pricePerMillionGems / 1e6;
       this.value = (amount / 1e6).toLocaleString(undefined, { maximumFractionDigits: 2 }) + "M";
-      document.getElementById("dueAmount").textContent = dueAmount.toFixed(2);
-      document.getElementById("inputAmount").value = dueAmount.toFixed(2);
+      updateDueAmount(amount);
     });
 
     document.getElementById("proceedButton").addEventListener("click", function () {
@@ -74,3 +124,4 @@
   </script>
   <noscript>You must enable JavaScript to see this text.</noscript>
 </body>
+</html>

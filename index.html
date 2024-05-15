@@ -8,11 +8,19 @@
     body.dark-mode {
       background-color: #222;
       color: #fff;
+      font-family: Arial, sans-serif;
     }
     .container {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 20px;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 10px;
+      background-color: #333;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .text-center {
+      text-align: center;
+      margin-bottom: 20px;
     }
     .form-group {
       margin-bottom: 20px;
@@ -20,20 +28,28 @@
     .form-control {
       width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #444;
       border-radius: 5px;
-      background-color: #333;
+      background-color: #555;
       color: #fff;
+      margin-top: 10px;
     }
     .btn {
-      padding: 10px 20px;
+      width: 100%;
+      padding: 15px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
     }
     .btn-neon {
       background-color: #00fffc;
       color: #000;
+      transition: background-color 0.3s;
+    }
+    .btn-neon:hover {
+      background-color: #00e5e1;
     }
   </style>
 </head>
@@ -46,18 +62,23 @@
       <input type="hidden" name="currency_code" value="USD">
       <input type="hidden" name="item_name" value="Gems Purchase">
       <input type="hidden" name="amount" id="inputAmount" value="0.00">
+      
       <div class="form-group">
-        <label for="inputAmount">Enter the amount of gems you want to buy (min: 10M):</label>
+        <label for="inputAmountField">Enter the amount of gems you want to buy (min: 10M):</label>
         <input type="text" class="form-control" id="inputAmountField" placeholder="Enter amount (e.g., 10M)">
       </div>
+      
       <div class="form-group">
         <label for="inputUsername">Enter your Discord ID:</label>
-        <input type="text" class="form-control" id="inputUsername" name="discord_id" placeholder="Enter Discord ID" required="">
+        <input type="text" class="form-control" id="inputUsername" name="discord_id" placeholder="Enter Discord ID" required>
       </div>
-      <button type="submit" class="btn btn-neon" id="proceedButton">Proceed to PayPal (Due: $
-<span id="dueAmount">0.00</span>)</button>
+      
+      <button type="submit" class="btn btn-neon" id="proceedButton">
+        Proceed to PayPal (Due: $<span id="dueAmount">0.00</span>)
+      </button>
     </form>
   </div>
+  
   <script>
     const pricePerMillionGems = {
       'default': 0.03,
@@ -122,6 +143,7 @@
       });
     });
   </script>
+  
   <noscript>You must enable JavaScript to see this text.</noscript>
 </body>
 </html>

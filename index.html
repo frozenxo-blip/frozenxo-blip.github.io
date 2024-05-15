@@ -4,58 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bet 99 Max</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body.dark-mode {
-      background-color: #222;
-      color: #fff;
-      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
     .container {
-      max-width: 500px;
-      margin: 50px auto;
-      padding: 30px;
-      border-radius: 10px;
-      background-color: #333;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-    .text-center {
+      max-width: 400px;
+      width: 100%;
+      padding: 40px;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #333, #111);
+      box-shadow: 10px 10px 20px #000, -10px -10px 20px #222;
       text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
       margin-bottom: 20px;
+      color: #00fffc;
     }
     .form-group {
       margin-bottom: 20px;
+      text-align: left;
     }
     .form-control {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #444;
-      border-radius: 5px;
-      background-color: #555;
-      color: #fff;
-      margin-top: 10px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #222;
+      color: #e0e0e0;
+      font-size: 1rem;
+      box-shadow: inset 3px 3px 6px #111, inset -3px -3px 6px #333;
     }
     .btn {
       width: 100%;
       padding: 15px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 1rem;
       font-weight: bold;
+      transition: all 0.3s ease;
     }
     .btn-neon {
-      background-color: #00fffc;
+      background: linear-gradient(145deg, #00c7c3, #00e5e1);
       color: #000;
-      transition: background-color 0.3s;
+      box-shadow: 5px 5px 15px #000, -5px -5px 15px #222;
     }
     .btn-neon:hover {
-      background-color: #00e5e1;
+      background: linear-gradient(145deg, #00a19a, #00bfb6);
     }
   </style>
 </head>
 <body class="dark-mode">
   <div class="container">
-    <h1 class="text-center">Bet 99 Max</h1>
+    <h1>Bet 99 Max</h1>
     <form id="betForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
       <input type="hidden" name="cmd" value="_xclick">
       <input type="hidden" name="business" value="hypedropmail123@gmail.com">

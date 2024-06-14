@@ -1,187 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bet 99 Max</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background: #f2f2f2;
-    }
-    .container {
-      max-width: 500px;
-      margin: 50px auto;
-      padding: 30px;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #333;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    label {
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #666;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 20px;
-      border: none;
-      border-radius: 10px;
-      background: #f2f2f2;
-      font-size: 16px;
-      color: #333;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s ease;
-    }
-    input[type="text"]:focus {
-      outline: none;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    }
-    .btn {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(145deg, #00e5e1, #00c7c3);
-      color: #fff;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Dark Mode */
-    body.dark-mode {
-      background: #222;
-      color: #fff;
-    }
-    .container.dark-mode {
-      background: #333;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-    input[type="text"].dark-mode {
-      background: #444;
-      color: #fff;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-    .btn.dark-mode {
-      background: linear-gradient(145deg, #00bfb6, #00a19a);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Panel</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-mode">
-  <div class="container">
-    <h1>Bet 99 Max</h1>
-    <form id="betForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <input type="hidden" name="cmd" value="_xclick">
-      <input type="hidden" name="business" value="hypedropmail123@gmail.com">
-      <input type="hidden" name="currency_code" value="USD">
-      <input type="hidden" name="item_name" value="Gems Purchase">
-      <input type="hidden" name="amount" id="inputAmount" value="0.00">
-      
-      <div class="form-group">
-        <label for="inputAmountField">Enter the amount of gems you want to buy (min: 10M):</label>
-        <input type="text" class="form-control" id="inputAmountField" placeholder="Enter amount (e.g., 10M)">
-      </div>
-      
-      <div class="form-group">
-        <label for="inputUsername">Enter your Discord ID:</label>
-        <input type="text" class="form-control" id="inputUsername" name="discord_id" placeholder="Enter Discord ID" required>
-      </div>
-      
-      <button type="submit" class="btn" id="proceedButton">
-        Proceed to PayPal (Due: $<span id="dueAmount">0.00</span>)
-      </button>
-    </form>
-  </div>
-  
-  <script>
-    const pricePerMillionGems = {
-      'default': 0.03,
-      '100m+': 0.029,
-      '1b+': 0.025
-    };
-
-    function parseNumber(numberString) {
-      if (typeof numberString !== "string") return parseFloat(numberString);
-      numberString = numberString.trim().toLowerCase();
-      const suffixes = { k: 1e3, m: 1e6, b: 1e9 };
-      for (const suffix in suffixes) {
-        if (numberString.endsWith(suffix)) {
-          const number = parseFloat(numberString.slice(0, -1));
-          if (!isNaN(number)) return number * suffixes[suffix];
-        }
-      }
-      return parseFloat(numberString);
-    }
-
-    function updateDueAmount(amount) {
-      let dueAmount = amount * pricePerMillionGems['default'] / 1e6;
-      if (amount >= 100e6 && amount < 1e9) {
-        dueAmount = amount * pricePerMillionGems['100m+'] / 1e6;
-      } else if (amount >= 1e9) {
-        dueAmount = amount * pricePerMillionGems['1b+'] / 1e6;
-      }
-      document.getElementById("dueAmount").textContent = dueAmount.toFixed(2);
-      document.getElementById("inputAmount").value = dueAmount.toFixed(2);
-    }
-
-    document.getElementById("inputAmountField").addEventListener("input", function () {
-      let inputValue = this.value || "0";
-      let amount = parseNumber(inputValue);
-      amount = Math.max(amount, 1e7);
-      updateDueAmount(amount);
-    });
-
-    document.getElementById("inputAmountField").addEventListener("change", function () {
-      let inputValue = this.value || "0";
-      let amount = parseNumber(inputValue);
-      amount = Math.max(amount, 1e7);
-      this.value = (amount / 1e6).toLocaleString(undefined, { maximumFractionDigits: 2 }) + "M";
-      updateDueAmount(amount);
-    });
-
-    document.getElementById("proceedButton").addEventListener("click", function () {
-      let discordId = document.getElementById("inputUsername").value;
-      let gemsAmount = parseNumber(document.getElementById("inputAmountField").value);
-      let message = `New purchase! <@${discordId}> bought ${gemsAmount.toLocaleString()} gems.`;
-      let webhookUrl = "https://discord.com/api/webhooks/1233496526140084305/rYF4fosprD1GP-7JiqtUbAa0lIM1RatoS1wO88jWa4mBggtGH8rVPQIMEJptpFFST9J3";
-      fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content: message })
-      }).then(response => {
-        if (!response.ok) {
-          throw new Error("Failed to send message to Discord");
-        }
-      }).catch(error => {
-        console.error("Error sending message to Discord:", error);
-      });
-    });
-  </script>
-  
-  <noscript>You must enable JavaScript to see this text.</noscript>
+<body>
+    <div class="container">
+        <h1>Hacker Panel</h1>
+        <div class="console">
+            <div class="output" id="output"></div>
+            <input type="text" id="input" placeholder="Enter command...">
+        </div>
+        <button id="runCommand">Run Command</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
-
